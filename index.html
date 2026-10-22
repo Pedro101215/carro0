@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Garagem 2001 - Os Ícones do Milênio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            red: '#ff0055',
+                            blue: '#00f0ff',
+                            yellow: '#ffbe00',
+                            dark: '#0a0b10',
+                            card: '#121420'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        arcade: ['"Press Start 2P"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para o efeito caça-níqueis e estética Y2K */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+        .glow-red {
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.7), 0 0 20px rgba(255, 0, 85, 0.4);
+        }
+        .slot-container {
+            perspective: 1000px;
+        }
+        .slot-reel {
+            box-shadow: inset 0 0 15px #000;
+        }
+        /* Animação suave para as bobinas do slot machine */
+        .blur-spin {
+            filter: blur(3px);
+            transition: all 0.1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-cyber-dark text-slate-100 font-rajdhani antialiased min-h-screen flex flex-col justify-between selection:bg-cyber-blue selection:text-black">
+
+    <!-- CABEÇALHO -->
+    <header class="sticky top-0 z-40 bg-cyber-dark/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo estilo anos 2001 -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyber-red to-cyber-blue flex items-center justify-center text-black font-black text-xl shadow-lg">
+                    <i class="fa-solid font-bold fa-car"></i>
+                </div>
+                <div>
+                    <h1 class="font-orbitron font-extrabold text-2xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-cyber-blue via-white to-cyber-red">
+                        GARAGEM 2001
+                    </h1>
+                    <p class="text-xs text-slate-400 -mt-1 tracking-widest uppercase">A Era de Ouro do Automobilismo</p>
+                </div>
+            </div>
+
+            <!-- Navegação + O Botão Secreto "Oi" -->
+            <nav class="flex items-center space-x-4">
+                <a href="#destaques" class="hidden md:inline-block text-slate-300 hover:text-cyber-blue transition-colors font-semibold">Lançamentos</a>
+                <a href="#curiosidades" class="hidden md:inline-block text-slate-300 hover:text-cyber-blue transition-colors font-semibold">Curiosidades</a>
+                
+                <!-- BOTÃO "Oi" COM O CAÇA-NÍQUEIS ESCONDIDO -->
+                <button id="secretBtn" class="group relative px-5 py-2.5 rounded-full font-bold text-sm bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-cyber-blue transition-all duration-300 shadow-lg hover:shadow-cyber-blue/20 flex items-center space-x-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 group-hover:animate-ping"></span>
+                    <span>Oi</span>
+                    <i class="fa-solid fa-face-smile text-slate-400 group-hover:text-cyber-blue transition-colors"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-16 px-4 overflow-hidden border-b border-slate-800/80">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyber-blue/10 via-transparent to-transparent"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-orbitron font-semibold bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/30 mb-4">
+                NOSTALGIA & VELOCIDADE
+            </span>
+            <h2 class="text-4xl sm:text-6xl font-orbitron font-black uppercase tracking-tight text-white mb-6">
+                Carros que Marcaram o Ano <span class="text-cyber-red glow-red">2001</span>
+            </h2>
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                O ano de 2001 foi um divisor de águas no automobilismo mundial. Entre superesportivos lendários, o nascimento da franquia <em>Velozes e Furiosos</em> e inovações que moldaram a década.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERIA DE CARROS DE 2001 -->
+    <main id="destaques" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex items-center justify-between mb-10">
+            <div>
+                <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-fire text-cyber-red"></i> Lendas de 2001
+                </h3>
+                <p class="text-slate-400 text-sm mt-1">Clique nos cards para saber mais detalhes técnicos</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1: Nissan GT-R R34 V-Spec II Nür / Velozes e Furiosos Context -->
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl overflow-hidden hover:border-cyber-blue/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                <div class="relative h-48 bg-slate-900 overflow-hidden">
+                    <svg class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="200" fill="#181c2b"/>
+                        <path d="M50 140 Q 120 135, 160 100 Q 230 85, 310 105 L 360 140 Z" fill="#2d3748"/>
+                        <path d="M80 120 L 150 95 L 260 95 L 320 120 Z" fill="#00f0ff" opacity="0.3"/>
+                        <circle cx="100" cy="140" r="22" fill="#111" stroke="#00f0ff" stroke-width="4"/>
+                        <circle cx="300" cy="140" r="22" fill="#111" stroke="#00f0ff" stroke-width="4"/>
+                        <text x="200" y="50" font-family="Orbitron" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">NISSAN GT-R R34</text>
+                    </svg>
+                    <span class="absolute top-3 right-3 bg-cyber-red text-white text-xs font-bold px-2.5 py-1 rounded-full font-orbitron">2001</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Nissan Skyline GT-R (R34)</h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Consagrado no ano de 2001 com o lançamento do filme <i>Velozes e Furiosos</i>. Motor RB26DETT twin-turbo e tração integral lendária.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between text-xs text-slate-300 font-mono">
+                        <span><i class="fa-solid fa-gauge-high text-cyber-blue mr-1"></i> 280 cv</span>
+                        <span><i class="fa-solid fa-bolt text-cyber-yellow mr-1"></i> 0-100: 4.6s</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Aston Martin Vanquish (2001) -->
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl overflow-hidden hover:border-cyber-blue/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                <div class="relative h-48 bg-slate-900 overflow-hidden">
+                    <svg class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="200" fill="#131924"/>
+                        <path d="M40 145 Q 110 130, 170 95 Q 260 90, 350 120 L 370 145 Z" fill="#3f4e65"/>
+                        <circle cx="95" cy="145" r="20" fill="#111" stroke="#ff0055" stroke-width="4"/>
+                        <circle cx="315" cy="145" r="20" fill="#111" stroke="#ff0055" stroke-width="4"/>
+                        <text x="200" y="50" font-family="Orbitron" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">ASTON MARTIN V12</text>
+                    </svg>
+                    <span class="absolute top-3 right-3 bg-cyber-blue text-black text-xs font-bold px-2.5 py-1 rounded-full font-orbitron">2001</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Aston Martin Vanquish</h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Apresentado em 2001 no Salão de Genebra, tornou-se o carro oficial de James Bond no cinema com seu visual imponente e poderoso motor V12.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between text-xs text-slate-300 font-mono">
+                        <span><i class="fa-solid fa-gauge-high text-cyber-blue mr-1"></i> 466 cv</span>
+                        <span><i class="fa-solid fa-tachometer-alt text-cyber-red mr-1"></i> Max: 306 km/h</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Mini Cooper (R50) 2001 -->
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl overflow-hidden hover:border-cyber-blue/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                <div class="relative h-48 bg-slate-900 overflow-hidden">
+                    <svg class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="200" fill="#1f1a24"/>
+                        <path d="M80 140 Q 110 90, 180 85 Q 270 85, 300 110 L 320 140 Z" fill="#9b2c2c"/>
+                        <rect x="150" y="90" width="70" height="25" rx="5" fill="#e2e8f0" opacity="0.8"/>
+                        <circle cx="120" cy="140" r="18" fill="#111" stroke="#ffbe00" stroke-width="4"/>
+                        <circle cx="280" cy="140" r="18" fill="#111" stroke="#ffbe00" stroke-width="4"/>
+                        <text x="200" y="50" font-family="Orbitron" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">MINI COOPER 2001</text>
+                    </svg>
+                    <span class="absolute top-3 right-3 bg-cyber-yellow text-black text-xs font-bold px-2.5 py-1 rounded-full font-orbitron">2001</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">BMW MINI Cooper (R50)</h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            A reinvenção de um ícone! Em 2001, o MINI ressurgiu sob o controle do grupo BMW com um design retro-moderno revolucionário.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between text-xs text-slate-300 font-mono">
+                        <span><i class="fa-solid fa-weight-hanging text-cyber-blue mr-1"></i> 1.125 kg</span>
+                        <span><i class="fa-solid fa-car-side text-cyber-yellow mr-1"></i> Compacto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Honda Integra Type R (DC5) -->
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl overflow-hidden hover:border-cyber-blue/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                <div class="relative h-48 bg-slate-900 overflow-hidden">
+                    <svg class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="200" fill="#13201b"/>
+                        <path d="M60 140 Q 130 130, 180 95 Q 250 95, 330 120 L 350 140 Z" fill="#f7fafc"/>
+                        <circle cx="110" cy="140" r="19" fill="#111" stroke="#00f0ff" stroke-width="4"/>
+                        <circle cx="300" cy="140" r="19" fill="#111" stroke="#00f0ff" stroke-width="4"/>
+                        <text x="200" y="50" font-family="Orbitron" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">INTEGRA TYPE-R</text>
+                    </svg>
+                    <span class="absolute top-3 right-3 bg-cyber-blue text-black text-xs font-bold px-2.5 py-1 rounded-full font-orbitron">2001</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Honda Integra Type R (DC5)</h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Lançado no Japão em 2001, introduziu o aclamado motor K20A de 220cv e giro altíssimo. O suprassumo dos esportivos com tração dianteira.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between text-xs text-slate-300 font-mono">
+                        <span><i class="fa-solid fa-arrows-spin text-cyber-blue mr-1"></i> 8.400 RPM</span>
+                        <span><i class="fa-solid fa-gears text-cyber-red mr-1"></i> K20A i-VTEC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Lamborghini Murciélago -->
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl overflow-hidden hover:border-cyber-blue/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                <div class="relative h-48 bg-slate-900 overflow-hidden">
+                    <svg class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="200" fill="#251a13"/>
+                        <path d="M30 145 Q 120 125, 200 90 Q 290 85, 370 130 L 380 145 Z" fill="#dd6b20"/>
+                        <circle cx="100" cy="145" r="20" fill="#111" stroke="#ffbe00" stroke-width="4"/>
+                        <circle cx="320" cy="145" r="20" fill="#111" stroke="#ffbe00" stroke-width="4"/>
+                        <text x="200" y="50" font-family="Orbitron" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">MURCIÉLAGO V12</text>
+                    </svg>
+                    <span class="absolute top-3 right-3 bg-cyber-yellow text-black text-xs font-bold px-2.5 py-1 rounded-full font-orbitron">2001</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Lamborghini Murciélago</h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            O substituto do Diablo estreou no final de 2001. Design agressivo assinado por Luc Donckerwolke e um gutural motor V12 de 6.2L.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between text-xs text-slate-300 font-mono">
+                        <span><i class="fa-solid fa-fire text-cyber-yellow mr-1"></i> 580 cv</span>
+                        <span><i class="fa-solid fa-tachometer-alt text-cyber-red mr-1"></i> Max: 330 km/h</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Chevrolet Corsa / Montana Era 2001 -->
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl overflow-hidden hover:border-cyber-blue/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                <div class="relative h-48 bg-slate-900 overflow-hidden">
+                    <svg class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="200" fill="#1e222d"/>
+                        <path d="M70 140 Q 120 100, 180 95 Q 260 95, 310 120 L 330 140 Z" fill="#3182ce"/>
+                        <circle cx="110" cy="140" r="18" fill="#111" stroke="#00f0ff" stroke-width="4"/>
+                        <circle cx="290" cy="140" r="18" fill="#111" stroke="#00f0ff" stroke-width="4"/>
+                        <text x="200" y="50" font-family="Orbitron" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">PEUGEOT 307 (2001)</text>
+                    </svg>
+                    <span class="absolute top-3 right-3 bg-cyber-red text-white text-xs font-bold px-2.5 py-1 rounded-full font-orbitron">2001</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Peugeot 307</h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Lançado na Europa em 2001 para substituir o lendário 306, arrebatou o prêmio de "Carro Europeu do Ano" de 2002 por seu parabrisa amplo e espaço interno.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between text-xs text-slate-300 font-mono">
+                        <span><i class="fa-solid fa-trophy text-cyber-yellow mr-1"></i> Car of the Year</span>
+                        <span><i class="fa-solid fa-car text-cyber-blue mr-1"></i> Hatchback</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- CURIOSIDADES DO ANO DE 2001 -->
+    <section id="curiosidades" class="bg-slate-900/50 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-8 text-center">
+                Fatos Marcantes da Cultura Automotiva em 2001
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cyber-card p-6 rounded-xl border border-slate-800 hover:border-cyber-blue/30 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-cyber-blue/10 text-cyber-blue flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 font-orbitron">Efeito Velozes & Furiosos</h4>
+                    <p class="text-slate-400 text-sm">
+                        Em junho de 2001 estreou nos cinemas o primeiro filme da franquia, gerando uma febre global pelo tuning, leds neon e tunagem japonesa JDM.
+                    </p>
+                </div>
+
+                <div class="bg-cyber-card p-6 rounded-xl border border-slate-800 hover:border-cyber-red/30 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-cyber-red/10 text-cyber-red flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 font-orbitron">Gran Turismo 3: A-Spec</h4>
+                    <p class="text-slate-400 text-sm">
+                        Lançado para PS2 em 2001, definiu os padrões dos jogos de corrida de simulação, exibindo mais de 180 carros ultradetalhados para a época.
+                    </p>
+                </div>
+
+                <div class="bg-cyber-card p-6 rounded-xl border border-slate-800 hover:border-cyber-yellow/30 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-cyber-yellow/10 text-cyber-yellow flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 font-orbitron">Avanço na Eletrônica</h4>
+                    <p class="text-slate-400 text-sm">
+                        2001 popularizou os sistemas de navegação GPS nos painéis, controles de estabilidade (ESP) em carros de produção e transmissões automatizadas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-cyber-dark border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            <p>© 2001 Garagem Retrô. Feito com nostalgia do início do milênio.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DO CAÇA-NÍQUEIS ESCONDIDO (Disparado pelo botão "Oi") -->
+    <div id="slotModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-slate-900 border-2 border-cyber-blue rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-[0_0_50px_rgba(0,240,255,0.3)] relative text-center transform scale-90 transition-transform duration-300" id="slotModalCard">
+            
+            <!-- Botão Fechar Modal -->
+            <button id="closeModalBtn" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Título do Caça-Níqueis -->
+            <div class="mb-6">
+                <span class="text-xs font-arcade text-cyber-yellow uppercase tracking-widest block mb-1">Especial Segredo 2001</span>
+                <h3 class="text-2xl font-orbitron font-black text-white glow-text">CASSINO DE GARAGEM</h3>
+                <p class="text-xs text-slate-400 mt-1">Combine 3 carros iguais para ganhar a corrida!</p>
+            </div>
+
+            <!-- Painel de Créditos / Placar -->
+            <div class="flex justify-between items-center bg-black/60 rounded-xl p-3 mb-6 border border-slate-800 font-mono text-sm">
+                <div class="text-left">
+                    <span class="text-slate-500 text-xs block">CRÉDITOS</span>
+                    <span id="creditsVal" class="text-cyber-yellow font-bold text-lg">100</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-slate-500 text-xs block">MENSAGEM</span>
+                    <span id="statusMsg" class="text-cyber-blue font-bold text-xs">Puxe a alavanca!</span>
+                </div>
+            </div>
+
+            <!-- BOBINAS DO CAÇA-NÍQUEIS (SLOT REELS) -->
+            <div class="grid grid-cols-3 gap-3 bg-black p-4 rounded-2xl border-2 border-slate-800 shadow-inner mb-6 relative overflow-hidden">
+                <!-- Linha indicadora central -->
+                <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-16 bg-cyber-blue/10 border-y border-cyber-blue/40 pointer-events-none"></div>
+
+                <!-- Reel 1 -->
+                <div class="h-24 bg-slate-900 rounded-lg flex items-center justify-center text-4xl border border-slate-800 relative slot-reel overflow-hidden">
+                    <div id="reel1" class="transition-all duration-200">🏎️</div>
+                </div>
+                <!-- Reel 2 -->
+                <div class="h-24 bg-slate-900 rounded-lg flex items-center justify-center text-4xl border border-slate-800 relative slot-reel overflow-hidden">
+                    <div id="reel2" class="transition-all duration-200">🏎️</div>
+                </div>
+                <!-- Reel 3 -->
+                <div class="h-24 bg-slate-900 rounded-lg flex items-center justify-center text-4xl border border-slate-800 relative slot-reel overflow-hidden">
+                    <div id="reel3" class="transition-all duration-200">🏎️</div>
+                </div>
+            </div>
+
+            <!-- BOTÃO DE JOGAR (GIRAR) -->
+            <button id="spinBtn" class="w-full py-4 rounded-xl font-orbitron font-black text-lg bg-gradient-to-r from-cyber-blue via-blue-500 to-cyber-red text-black hover:brightness-110 active:scale-95 transition-all shadow-lg uppercase tracking-wider flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-rotate text-xl"></i>
+                <span>GIRAR (10 CRÉDITOS)</span>
+            </button>
+
+            <!-- Tabela de Prêmios Rápida -->
+            <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex justify-around">
+                <span>🚗🚗🚗 = +50</span>
+                <span>🏎️🏎️🏎️ = +100</span>
+                <span>🚨🚨🚨 = +250</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Elementos do DOM
+        const secretBtn = document.getElementById('secretBtn');
+        const slotModal = document.getElementById('slotModal');
+        const slotModalCard = document.getElementById('slotModalCard');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        const reel1 = document.getElementById('reel1');
+        const reel2 = document.getElementById('reel2');
+        const reel3 = document.getElementById('reel3');
+        const spinBtn = document.getElementById('spinBtn');
+        const creditsVal = document.getElementById('creditsVal');
+        const statusMsg = document.getElementById('statusMsg');
+
+        // Símbolos temáticos de carros
+        const symbols = ['🚗', '🏎️', '🚘', '🚨', '🛞', '⚡'];
+        
+        let credits = 100;
+        let isSpinning = false;
+
+        // Abrir Modal ao clicar no botão secreto "Oi"
+        secretBtn.addEventListener('click', () => {
+            slotModal.classList.remove('opacity-0', 'pointer-events-none');
+            slotModalCard.classList.remove('scale-90');
+            slotModalCard.classList.add('scale-100');
+        });
+
+        // Fechar Modal
+        function closeModal() {
+            slotModal.classList.add('opacity-0', 'pointer-events-none');
+            slotModalCard.classList.remove('scale-100');
+            slotModalCard.classList.add('scale-90');
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Fechar ao clicar fora do card
+        slotModal.addEventListener('click', (e) => {
+            if (e.target === slotModal) {
+                closeModal();
+            }
+        });
+
+        // Função de som sintético usando Web Audio API (sem assets externos)
+        function playTone(freq, type = 'sine', duration = 0.1) {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {
+                // AudioContext pode ser bloqueado sem interação
+            }
+        }
+
+        // Lógica do Caça-Níqueis
+        spinBtn.addEventListener('click', () => {
+            if (isSpinning) return;
+
+            if (credits < 10) {
+                statusMsg.textContent = "Sem créditos!";
+                statusMsg.className = "text-cyber-red font-bold text-xs";
+                playTone(150, 'sawtooth', 0.3);
+                return;
+            }
+
+            // Deduzir crédito
+            credits -= 10;
+            creditsVal.textContent = credits;
+            isSpinning = true;
+            spinBtn.disabled = true;
+            spinBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            statusMsg.textContent = "Acelerando...";
+            statusMsg.className = "text-cyber-yellow font-bold text-xs";
+
+            // Animação das bobinas
+            let spinsLeft = 15;
+            const reels = [reel1, reel2, reel3];
+            
+            // Adiciona classe de blur
+            reels.forEach(r => r.classList.add('blur-spin'));
+
+            const interval = setInterval(() => {
+                reels.forEach(r => {
+                    const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+                    r.textContent = randomSymbol;
+                });
+
+                playTone(300 + Math.random() * 200, 'square', 0.05);
+
+                spinsLeft--;
+                if (spinsLeft <= 0) {
+                    clearInterval(interval);
+                    finalizeSpin();
+                }
+            }, 100);
+        });
+
+        function finalizeSpin() {
+            reels = [reel1, reel2, reel3];
+            reels.forEach(r => r.classList.remove('blur-spin'));
+
+            // Sorteio final
+            const res1 = symbols[Math.floor(Math.random() * symbols.length)];
+            const res2 = symbols[Math.floor(Math.random() * symbols.length)];
+            const res3 = symbols[Math.floor(Math.random() * symbols.length)];
+
+            reel1.textContent = res1;
+            reel2.textContent = res2;
+            reel3.textContent = res3;
+
+            isSpinning = false;
+            spinBtn.disabled = false;
+            spinBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            // Verificar combinações de vitória
+            if (res1 === res2 && res2 === res3) {
+                let winAmount = 100;
+                if (res1 === '🚨') winAmount = 250;
+                if (res1 === '🏎️') winAmount = 150;
+
+                credits += winAmount;
+                creditsVal.textContent = credits;
+                statusMsg.textContent = `JACKPOT! +${winAmount}`;
+                statusMsg.className = "text-emerald-400 font-bold text-xs animate-bounce";
+
+                // Som de Vitória
+                playTone(523, 'triangle', 0.15);
+                setTimeout(() => playTone(659, 'triangle', 0.15), 150);
+                setTimeout(() => playTone(783, 'triangle', 0.3), 300);
+
+            } else if (res1 === res2 || res2 === res3 || res1 === res3) {
+                const winAmount = 20;
+                credits += winAmount;
+                creditsVal.textContent = credits;
+                statusMsg.textContent = `Par Parcial! +${winAmount}`;
+                statusMsg.className = "text-cyber-blue font-bold text-xs";
+
+                playTone(440, 'sine', 0.1);
+                setTimeout(() => playTone(554, 'sine', 0.2), 100);
+            } else {
+                statusMsg.textContent = "Tente Novamente!";
+                statusMsg.className = "text-slate-400 font-bold text-xs";
+                playTone(200, 'sawtooth', 0.2);
+            }
+        }
+    </script>
+</body>
+</html>
